@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Histórico | Djuzzy Barber</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=UnifrakturCook:wght@700&display=swap">
+  <link rel="stylesheet" href="../css/estilo.css?v=7">
+  <script src="../js/api.js?v=7" defer></script>
+  <script src="../js/interface.js?v=7" defer></script>
+  <script src="../js/graficos.js?v=7" defer></script>
+  <script src="../js/financeiro.js?v=7" defer></script>
+  <script src="../js/historico.js?v=7" defer></script>
+</head>
+<body>
+<header class="topo" id="topo"></header>
+<nav class="submenu" id="submenu" aria-label="Financeiro"></nav>
+<main class="miolo">
+  <div id="aviso"></div>
+  <div id="conteudo">
+    <h1>Histórico de movimentos</h1>
+    <p class="cinza">Entradas (pagamentos recebidos) e saídas (despesas), do mais recente para o mais antigo.</p>
+    <form class="caixa filtros" id="filtros">
+      <div><label for="tipo">Tipo</label>
+        <select id="tipo"><option value="">Todos</option><option value="entrada">Entradas</option><option value="saida">Saídas</option></select></div>
+      <div><label for="de">De</label><input id="de" type="date"></div>
+      <div><label for="ate">Até</label><input id="ate" type="date"></div>
+      <div><button type="submit">Filtrar</button></div>
+    </form>
+    <div class="metricas">
+      <div class="metrica"><span>Entradas</span><strong class="positivo" id="t-entradas">-</strong></div>
+      <div class="metrica"><span>Saídas</span><strong class="negativo" id="t-saidas">-</strong></div>
+      <div class="metrica"><span>Diferença</span><strong id="t-diferenca">-</strong></div>
+    </div>
+    <div class="caixa">
+      <div class="tabela"><table>
+        <thead><tr><th>Data</th><th>Tipo</th><th>Descrição</th><th>Método</th><th class="valor">Valor</th></tr></thead>
+        <tbody id="lista"></tbody></table></div>
+      <div class="paginacao">
+        <span class="cinza" id="resumo"></span>
+        <span><button type="button" class="sec pequeno" id="anterior">Anterior</button>
+        <button type="button" class="sec pequeno" id="seguinte">Seguinte</button></span>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

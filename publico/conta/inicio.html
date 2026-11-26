@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A minha área | Djuzzy Barber</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=UnifrakturCook:wght@700&display=swap">
+  <link rel="stylesheet" href="../css/estilo.css?v=7">
+  <script src="../js/api.js?v=7" defer></script>
+  <script src="../js/interface.js?v=7" defer></script>
+  <script src="../js/cliente-inicio.js?v=7" defer></script>
+</head>
+<body>
+<header class="topo" id="topo"></header>
+<main class="miolo">
+  <div id="aviso"></div>
+  <div id="conteudo">
+    <h1>Bem-vindo, <span id="nome"></span></h1>
+
+    <section class="caixa vez" id="vez" hidden>
+      <h2>A sua vez</h2>
+      <div id="vez-detalhe"></div>
+    </section>
+
+    <form class="caixa" id="form-fila" hidden>
+      <h2>Entrar na fila</h2>
+      <div class="linha2">
+        <div><label for="servico">Serviço</label><select id="servico" required></select></div>
+        <div><label for="barbeiro">Barbeiro</label><select id="barbeiro" required></select></div>
+      </div>
+      <p>Preço: <strong id="preco-servico">-</strong></p>
+      <div class="acoes"><button type="submit">Entrar na fila</button></div>
+    </form>
+
+    <form class="caixa" id="form-marcacao">
+      <h2>Marcar para outro dia</h2>
+      <div class="linha2">
+        <div><label for="m-servico">Serviço</label><select id="m-servico" required></select></div>
+        <div><label for="m-barbeiro">Barbeiro</label><select id="m-barbeiro" required></select></div>
+      </div>
+      <label for="m-data">Data e hora</label>
+      <input id="m-data" type="datetime-local" step="900" required>
+      <p>Preço: <strong id="m-preco">-</strong></p>
+      <div class="acoes"><button type="submit">Marcar</button></div>
+    </form>
+
+    <section class="caixa">
+      <h2>As minhas marcações</h2>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Data e hora</th><th>Serviço</th><th>Barbeiro</th><th>Duração</th><th>Preço</th><th>Estado</th><th></th></tr></thead>
+          <tbody id="marcacoes"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="caixa">
+      <h2>Os meus atendimentos</h2>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Data e hora</th><th>Serviço</th><th>Barbeiro</th><th>Preço</th><th>Estado</th></tr></thead>
+          <tbody id="historico"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,139 @@
+'use strict';
+// Elementos comuns da interface: menu, avisos e controlo de acesso nas páginas.
+const Interface = {
+  el(etiqueta, atributos = {}, ...filhos) {
+    const e = document.createElement(etiqueta);
+    for (const [k, v] of Object.entries(atributos)) {
+      if (k === 'texto') e.textContent = v; else e.setAttribute(k, v);
+    }
+    filhos.forEach(f => e.append(f));
+    return e;
+  },
+
+  ROTULOS_ESTADO: { em_espera: 'Em espera', em_atendimento: 'Em atendimento', concluido: 'Concluído', cancelado: 'Cancelado', pendente: 'Pendente', confirmado: 'Confirmado' },
+
+  rotuloEstado(estado) {
+    return this.ROTULOS_ESTADO[estado] || estado;
+  },
+
+  formatarDataHora(texto) {
+    return String(texto).slice(0, 16); // AAAA-MM-DD HH:MM
+  },
+
+  formatarPreco(valor) {
+    return new Intl.NumberFormat('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(Number(valor)) + ' MT';
+  },
+
+  aviso(texto, tipo = 'erro') {
+    const caixa = document.getElementById('aviso');
+    caixa.replaceChildren(this.el('div', { class: `aviso ${tipo}`, role: tipo === 'erro' ? 'alert' : 'status', texto }));
+  },
+
+  guardarAviso(texto, tipo = 'sucesso') {
+    sessionStorage.setItem('aviso', JSON.stringify({ texto, tipo }));
+  },
+
+  mostrarAvisoGuardado() {
+    const g = sessionStorage.getItem('aviso');
+    if (!g) return;
+    sessionStorage.removeItem('aviso');
+    const { texto, tipo } = JSON.parse(g);
+    this.aviso(texto, tipo);
+  },
+
+  // Constrói o cabeçalho conforme a pessoa e o seu perfil.
+  menu(sessao) {
+    const u = sessao.utilizador;
+    const ligacao = (texto, destino) => this.el('a', { href: RAIZ + destino, texto });
+    const nav = this.el('nav', { 'aria-label': 'Navegação principal' });
+    const pessoal = u && u.perfil !== 'cliente';
+    if (pessoal) {
+      nav.append(ligacao('Painel', 'admin/painel.html'), ligacao('Clientes', 'admin/clientes.html'), ligacao('Atendimentos', 'admin/atendimentos.html'), ligacao('Marcações', 'admin/agendamentos.html'));
+      if (u.perfil === 'administrador') {
+        nav.append(ligacao('Serviços', 'admin/servicos.html'), ligacao('Utilizadores', 'admin/utilizadores.html'));
+      }
+    } else if (u) {
+      nav.append(
+        ligacao('A minha área', 'conta/inicio.html'),
+        ligacao('Meu Perfil', 'conta/perfil.html')
+    );
+    } else {
+      nav.append(ligacao('Entrar', 'conta/entrar.html'), ligacao('Criar conta', 'conta/registar.html'));
+    }
+    if (u) {
+      const sair = this.el('button', { class: 'sec pequeno', type: 'button', texto: 'Sair' });
+      sair.addEventListener('click', async () => {
+        const dados = await Api.pedir('sair', 'POST');
+        Api.csrf = dados.csrf;
+        location.href = RAIZ + (pessoal ? 'admin/entrar.html' : 'conta/entrar.html');
+      });
+      nav.append(sair);
+    }
+    const logo = this.el('a', { class: 'logo', href: RAIZ + (pessoal ? 'admin/painel.html' : 'index.html'), texto: 'Djuzzy Barber' });
+    document.getElementById('topo').replaceChildren(logo, nav);
+    this.footer();
+  },
+
+  // Cria o rodapé do sistema.
+footer() {
+    const rodape = this.el('footer', { class: 'rodape' });
+
+    // Área da marca.
+    const marca = this.el('div', { class: 'rodape-marca' });
+
+    marca.append(
+        this.el('a', {
+            class: 'logo',
+            href: RAIZ + 'index.html',
+            texto: 'Djuzzy Barber'
+        }),
+        this.el('p', {
+            texto: 'O teu estilo, a nossa prioridade.'
+        })
+    );
+
+    // Navegação.
+    const navegacao = this.el('div', { class: 'rodape-links' });
+
+    navegacao.append(
+        this.el('h3', { texto: 'Navegação' }),
+        this.el('a', { href: RAIZ + 'index.html', texto: 'Início' }),
+        this.el('a', { href: RAIZ + 'conta/inicio.html', texto: 'Área do cliente' }),
+        this.el('a', { href: RAIZ + 'conta/perfil.html', texto: 'Meu perfil' })
+    );
+
+    // Parte inferior.
+    const inferior = this.el('div', { class: 'rodape-inferior' });
+
+    inferior.append(
+        this.el('p', {
+            texto: `© ${new Date().getFullYear()} Djuzzy Barber. Todos os direitos reservados.`
+        }),
+        this.el('span', {
+            class: 'rodape-assinatura',
+            texto: 'ESTILO • PRECISÃO • QUALIDADE'
+        })
+    );
+
+    rodape.append(marca, navegacao, inferior);
+
+    // Colocar o footer no final da página.
+    document.body.append(rodape);
+},
+
+  // Para páginas protegidas: sem sessão vai para a entrada; com perfil errado mostra "Acesso negado".
+  // O servidor volta a verificar o perfil em cada pedido de dados.
+  async exigir(perfis, paginaEntrar) {
+    const sessao = await Api.sessao();
+    if (!sessao.utilizador) {
+      location.href = RAIZ + paginaEntrar;
+      return new Promise(() => {});
+    }
+    this.menu(sessao);
+    if (!perfis.includes(sessao.utilizador.perfil)) {
+      document.getElementById('conteudo').replaceChildren(this.el('p', { class: 'aviso erro', texto: 'Acesso negado.' }));
+      return new Promise(() => {});
+    }
+    return sessao.utilizador;
+  },
+};

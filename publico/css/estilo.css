@@ -1,0 +1,144 @@
+:root{--preto:#111;--carvao:#1b1b1b;--linha:#2e2e2e;--branco:#fff;--cinza:#a9a9a9;--verde:#7fd3a0;--vermelho:#ff8d8d}
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{margin:0;background:var(--preto);color:var(--branco);font:15px/1.5 'Space Mono','Courier New',monospace}
+a{color:inherit}
+.logo{font-family:'UnifrakturCook','Old English Text MT',serif;font-weight:700;font-size:30px;text-decoration:none}
+.topo{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:16px 5%;border-bottom:1px solid var(--linha)}
+.topo nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.em-linha{display:inline;margin:0}
+.miolo{max-width:1000px;margin:auto;padding:26px 5% 60px}
+.estreito{max-width:440px;margin:4vh auto 0}
+h1{font-size:22px;margin:0 0 14px}h2{font-size:17px;margin:0 0 12px}
+.cinza{color:var(--cinza)}
+.heroi{padding:20px 0}.heroi h1{font-size:clamp(24px,5vw,38px)}
+.caixa{background:var(--carvao);border:1px solid var(--linha);padding:18px;margin-top:16px}
+label{display:block;color:var(--cinza);font-size:13px;margin:12px 0 5px}
+input,select{width:100%;padding:11px;background:var(--preto);color:var(--branco);border:1px solid var(--linha);font:inherit;border-radius:0}
+button,.botao{font:inherit;cursor:pointer;border:1px solid var(--branco);background:var(--branco);color:var(--preto);padding:11px 16px;text-decoration:none;display:inline-block;border-radius:0}
+button.sec,.botao.sec{background:transparent;color:var(--branco)}
+button.pequeno{padding:5px 10px;font-size:12px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--branco);outline-offset:2px}
+.acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.linha2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.aviso{padding:12px 14px;margin-bottom:14px;border:1px solid}
+.aviso.sucesso{border-color:var(--verde);color:var(--verde)}.aviso.erro{border-color:var(--vermelho);color:var(--vermelho)}
+.tabela{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--linha);white-space:nowrap}th{color:var(--cinza)}
+@media(max-width:700px){.linha2{grid-template-columns:1fr}}
+
+.lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:14px}
+.cartao{background:var(--branco);color:var(--preto);padding:22px;text-align:center}
+.cartao h3{margin:0 0 6px;font-size:17px}.cartao p{margin:4px 0}
+.cartao .desc{color:#444}.cartao .preco{font-size:22px;font-weight:700;margin-top:12px}
+.mudo{opacity:.55}
+
+.paginacao{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:12px}
+.paginacao button:disabled{opacity:.4;cursor:not-allowed}
+
+.destaque{font-size:20px;font-weight:700;margin:0 0 8px}
+.vez p{margin:6px 0}
+.estado-em_atendimento{font-weight:700}
+.estado-cancelado{opacity:.55}
+select:disabled{opacity:.7}
+
+.submenu{display:flex;gap:6px;flex-wrap:wrap;padding:10px 5%;border-bottom:1px solid var(--linha)}
+.submenu a{padding:6px 10px;border:1px solid var(--linha);text-decoration:none;font-size:13px}
+.submenu a.ativo{background:var(--branco);color:var(--preto);border-color:var(--branco)}
+.metricas{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:16px}
+.metrica{border:1px solid var(--linha);background:var(--carvao);padding:14px}
+.metrica span{display:block;color:var(--cinza);font-size:13px}
+.metrica strong{display:block;font-size:20px;margin-top:4px}
+.positivo{color:var(--verde)}.negativo{color:var(--vermelho)}
+.filtros{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;align-items:end}
+.grafico svg{width:100%;height:auto;display:block}
+.g-receitas{fill:#fff}.g-despesas{fill:#ff8d8d}
+.g-lucro{stroke:#7fd3a0;fill:none;stroke-width:2}.g-ponto{fill:#7fd3a0}
+.g-eixo{stroke:#2e2e2e;stroke-width:1}.g-zero{stroke:#555;stroke-width:1}
+.g-texto{fill:#a9a9a9;font-size:11px;font-family:inherit}
+.legenda{display:flex;gap:16px;flex-wrap:wrap;margin:8px 0 0;font-size:13px;color:var(--cinza)}
+.legenda i{display:inline-block;width:10px;height:10px;margin-right:6px}
+.l-receitas{background:#fff}.l-despesas{background:#ff8d8d}.l-lucro{background:#7fd3a0}
+td.valor,th.valor{text-align:right}
+/* =========================
+   FOOTER - DJUZZY BARBER
+========================= */
+
+.rodape {
+    margin-top: 70px;
+    padding: 35px 5% 18px;
+    background: var(--carvao);
+    border-top: 1px solid var(--linha);
+}
+
+.rodape-marca .logo {
+    font-size: 28px;
+    color: var(--branco);
+}
+
+.rodape-marca p {
+    color: var(--cinza);
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.rodape-links {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-top: 25px;
+}
+
+.rodape-links h3 {
+    font-size: 13px;
+    margin: 0 0 5px;
+    color: var(--verde);
+    text-transform: uppercase;
+}
+
+.rodape-links a {
+    text-decoration: none;
+    color: var(--cinza);
+    font-size: 13px;
+    width: fit-content;
+    transition: color .2s ease;
+}
+
+.rodape-links a:hover {
+    color: var(--verde);
+}
+
+.rodape-inferior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--linha);
+    margin-top: 30px;
+    padding-top: 15px;
+}
+
+.rodape-inferior p {
+    color: var(--cinza);
+    font-size: 11px;
+    margin: 0;
+}
+
+.rodape-assinatura {
+    color: var(--verde);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 600px) {
+    .rodape {
+        margin-top: 40px;
+        padding: 30px 5% 18px;
+    }
+
+    .rodape-inferior {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

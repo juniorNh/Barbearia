@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Financeiro | Djuzzy Barber</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=UnifrakturCook:wght@700&display=swap">
+  <link rel="stylesheet" href="../css/estilo.css?v=7">
+  <script src="../js/api.js?v=7" defer></script>
+  <script src="../js/interface.js?v=7" defer></script>
+  <script src="../js/graficos.js?v=7" defer></script>
+  <script src="../js/financeiro.js?v=7" defer></script>
+  <script src="../js/financas.js?v=7" defer></script>
+</head>
+<body>
+<header class="topo" id="topo"></header>
+<nav class="submenu" id="submenu" aria-label="Financeiro"></nav>
+<main class="miolo">
+  <div id="aviso"></div>
+  <div id="conteudo">
+    <h1>Financeiro</h1>
+    <div class="metricas">
+      <div class="metrica"><span>Receitas hoje</span><strong id="c-hoje">-</strong></div>
+      <div class="metrica"><span>Receitas esta semana</span><strong id="c-semana">-</strong></div>
+      <div class="metrica"><span>Receitas este mês</span><strong id="c-mes">-</strong></div>
+      <div class="metrica"><span>Despesas este mês</span><strong id="c-despesas-mes">-</strong></div>
+      <div class="metrica"><span>Lucro este mês</span><strong id="c-lucro-mes">-</strong></div>
+      <div class="metrica"><span>Saldo total (receitas - despesas)</span><strong id="c-saldo">-</strong></div>
+      <div class="metrica"><span>Por receber</span><strong id="c-por-receber">-</strong><span id="c-n-por-receber"></span></div>
+    </div>
+    <div class="caixa"><h2>Últimos 30 dias</h2><div class="grafico" id="grafico-dias"></div></div>
+    <div class="caixa"><h2>Últimos 12 meses</h2><div class="grafico" id="grafico-meses"></div></div>
+  </div>
+</main>
+</body>
+</html>

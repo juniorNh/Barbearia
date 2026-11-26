@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relatórios | Djuzzy Barber</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=UnifrakturCook:wght@700&display=swap">
+  <link rel="stylesheet" href="../css/estilo.css?v=7">
+  <script src="../js/api.js?v=7" defer></script>
+  <script src="../js/interface.js?v=7" defer></script>
+  <script src="../js/graficos.js?v=7" defer></script>
+  <script src="../js/financeiro.js?v=7" defer></script>
+  <script src="../js/relatorios.js?v=7" defer></script>
+</head>
+<body>
+<header class="topo" id="topo"></header>
+<nav class="submenu" id="submenu" aria-label="Financeiro"></nav>
+<main class="miolo">
+  <div id="aviso"></div>
+  <div id="conteudo">
+    <h1>Relatórios</h1>
+    <p class="cinza">Compare receitas, despesas e lucro (receitas menos despesas) por período.</p>
+    <form class="caixa filtros" id="filtros">
+      <div><label for="agrupar">Ver por</label>
+        <select id="agrupar"><option value="dia">Dia</option><option value="semana">Semana</option><option value="mes">Mês</option></select></div>
+      <div><label for="de">De</label><input id="de" type="date"></div>
+      <div><label for="ate">Até</label><input id="ate" type="date"></div>
+      <div><button type="submit">Atualizar</button></div>
+    </form>
+    <div class="metricas">
+      <div class="metrica"><span>Receitas</span><strong id="t-receitas">-</strong></div>
+      <div class="metrica"><span>Despesas</span><strong id="t-despesas">-</strong></div>
+      <div class="metrica"><span>Lucro</span><strong id="t-lucro">-</strong></div>
+    </div>
+    <div class="caixa"><div class="grafico" id="grafico"></div></div>
+    <div class="caixa">
+      <div class="tabela"><table>
+        <thead><tr><th>Período</th><th class="valor">Receitas</th><th class="valor">Despesas</th><th class="valor">Lucro</th></tr></thead>
+        <tbody id="lista"></tbody></table></div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

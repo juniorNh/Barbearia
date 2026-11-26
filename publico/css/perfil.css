@@ -1,0 +1,189 @@
+/* Página de perfil */
+
+.perfil-pagina {
+    max-width: 1050px;
+    padding-top: 35px;
+}
+
+.perfil-titulo {
+    margin-bottom: 25px;
+}
+
+.subtitulo {
+    color: var(--verde);
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.perfil-titulo h1 {
+    font-size: 30px;
+    margin: 8px 0;
+}
+
+.perfil-titulo p {
+    margin: 0;
+}
+
+/* Cartão principal */
+
+.perfil-cartao {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 30px;
+    background: var(--carvao);
+    border: 1px solid var(--linha);
+    border-left: 4px solid var(--verde);
+}
+
+.perfil-avatar {
+    width: 105px;
+    height: 105px;
+    min-width: 105px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--verde);
+    color: var(--preto);
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.perfil-identificacao h2 {
+    font-size: 23px;
+    margin: 8px 0;
+}
+
+.perfil-identificacao p {
+    margin: 5px 0 12px;
+}
+
+.perfil-etiqueta {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid var(--verde);
+    color: var(--verde);
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+/* Secções */
+
+.perfil-seccao {
+    margin-top: 25px;
+    padding: 25px;
+    background: var(--carvao);
+    border: 1px solid var(--linha);
+}
+
+.seccao-cabecalho {
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--linha);
+    padding-bottom: 15px;
+}
+
+.seccao-cabecalho h2 {
+    font-size: 19px;
+    margin: 5px 0 0;
+}
+
+/* Dados pessoais */
+
+.perfil-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.campo-perfil {
+    padding: 17px;
+    background: var(--preto);
+    border: 1px solid var(--linha);
+    min-width: 0;
+}
+
+.campo-perfil span {
+    display: block;
+    color: var(--cinza);
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.campo-perfil strong {
+    display: block;
+    overflow-wrap: anywhere;
+    font-size: 14px;
+}
+
+/* Segurança */
+
+.seguranca-cartao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 17px;
+    margin-top: 12px;
+    background: var(--preto);
+    border: 1px solid var(--linha);
+}
+
+.seguranca-cartao h3 {
+    font-size: 14px;
+    margin: 0 0 6px;
+}
+
+.seguranca-cartao p {
+    font-size: 12px;
+    margin: 0;
+}
+
+.seguranca-estado {
+    color: var(--verde);
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+/* Rodapé */
+
+.perfil-rodape {
+    text-align: center;
+    padding: 25px 0;
+    font-size: 12px;
+}
+
+/* Responsividade */
+
+@media(max-width: 600px) {
+
+    .perfil-cartao {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 15px;
+    }
+
+    .perfil-avatar {
+        width: 90px;
+        height: 90px;
+        min-width: 90px;
+    }
+
+    .perfil-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .perfil-seccao {
+        padding: 17px;
+    }
+
+    .seguranca-cartao {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .perfil-titulo h1 {
+        font-size: 25px;
+    }
+}

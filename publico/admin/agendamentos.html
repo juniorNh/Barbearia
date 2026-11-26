@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marcações | Djuzzy Barber</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=UnifrakturCook:wght@700&display=swap">
+  <link rel="stylesheet" href="../css/estilo.css?v=7">
+  <script src="../js/api.js?v=7" defer></script>
+  <script src="../js/interface.js?v=7" defer></script>
+  <script src="../js/agendamentos.js?v=7" defer></script>
+</head>
+<body>
+<header class="topo" id="topo"></header>
+<main class="miolo">
+  <div id="aviso"></div>
+  <div id="conteudo">
+    <h1>Marcações</h1>
+    <div class="caixa">
+      <label for="filtro-estado">Estado</label>
+      <select id="filtro-estado">
+        <option value="">Todos</option>
+        <option value="pendente">Pendente</option>
+        <option value="confirmado">Confirmado</option>
+        <option value="concluido">Concluído</option>
+        <option value="cancelado">Cancelado</option>
+      </select>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Data e hora</th><th>Cliente</th><th>Serviço</th><th>Barbeiro</th><th>Duração</th><th>Preço</th><th>Estado</th></tr></thead>
+          <tbody id="lista"></tbody>
+        </table>
+      </div>
+      <p class="cinza" id="resumo"></p>
+    </div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pagamentos | Djuzzy Barber</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=UnifrakturCook:wght@700&display=swap">
+  <link rel="stylesheet" href="../css/estilo.css?v=7">
+  <script src="../js/api.js?v=7" defer></script>
+  <script src="../js/interface.js?v=7" defer></script>
+  <script src="../js/graficos.js?v=7" defer></script>
+  <script src="../js/financeiro.js?v=7" defer></script>
+  <script src="../js/pagamentos.js?v=7" defer></script>
+</head>
+<body>
+<header class="topo" id="topo"></header>
+<nav class="submenu" id="submenu" aria-label="Financeiro"></nav>
+<main class="miolo">
+  <div id="aviso"></div>
+  <div id="conteudo">
+    <h1>Pagamentos</h1>
+    <div class="caixa">
+      <h2>Por receber</h2>
+      <p class="cinza">Atendimentos concluídos que ainda não foram pagos. O valor é o preço do serviço.</p>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Concluído em</th><th>Cliente</th><th>Serviço</th><th>Barbeiro</th><th class="valor">Valor</th><th>Método</th><th></th></tr></thead>
+          <tbody id="por-receber"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="caixa">
+      <h2>Pagamentos registados</h2>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Data e hora</th><th>Cliente</th><th>Serviço</th><th>Barbeiro</th><th>Método</th><th class="valor">Valor</th></tr></thead>
+          <tbody id="pagamentos"></tbody>
+        </table>
+      </div>
+      <div class="paginacao">
+        <span class="cinza" id="resumo"></span>
+        <span><button type="button" class="sec pequeno" id="anterior">Anterior</button>
+        <button type="button" class="sec pequeno" id="seguinte">Seguinte</button></span>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

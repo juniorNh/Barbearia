@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atendimentos | Djuzzy Barber</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=UnifrakturCook:wght@700&display=swap">
+  <link rel="stylesheet" href="../css/estilo.css?v=7">
+  <script src="../js/api.js?v=7" defer></script>
+  <script src="../js/interface.js?v=7" defer></script>
+  <script src="../js/atendimentos.js?v=7" defer></script>
+</head>
+<body>
+<header class="topo" id="topo"></header>
+<main class="miolo">
+  <div id="aviso"></div>
+  <div id="conteudo">
+    <h1>Atendimentos</h1>
+    <form id="form-atendimento" class="caixa">
+      <h2>Novo atendimento</h2>
+      <label for="busca-cliente">Procurar cliente (nome ou contacto)</label>
+      <input id="busca-cliente" type="search" maxlength="60" autocomplete="off">
+      <label for="cliente">Cliente</label>
+      <select id="cliente" name="cliente_id" required></select>
+      <div class="linha2">
+        <div><label for="servico">Serviço</label><select id="servico" name="servico_id" required></select></div>
+        <div><label for="barbeiro">Barbeiro</label><select id="barbeiro" name="funcionario_id" required></select></div>
+      </div>
+      <p>Preço: <strong id="preco-servico">-</strong></p>
+      <div class="acoes"><button type="submit">Confirmar atendimento</button></div>
+    </form>
+
+    <div class="caixa">
+      <h2>Fila de hoje</h2>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Barbeiro</th><th>Vez</th><th>Cliente</th><th>Serviço</th><th>Preço</th><th>Estado</th><th></th></tr></thead>
+          <tbody id="fila"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="caixa">
+      <h2>Histórico de atendimentos</h2>
+      <label for="filtro-estado">Estado</label>
+      <select id="filtro-estado">
+        <option value="">Todos</option>
+        <option value="em_espera">Em espera</option>
+        <option value="em_atendimento">Em atendimento</option>
+        <option value="concluido">Concluído</option>
+        <option value="cancelado">Cancelado</option>
+      </select>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Data e hora</th><th>Cliente</th><th>Serviço</th><th>Barbeiro</th><th>Preço</th><th>Estado</th></tr></thead>
+          <tbody id="historico"></tbody>
+        </table>
+      </div>
+      <div class="paginacao">
+        <span class="cinza" id="resumo"></span>
+        <span>
+          <button type="button" class="sec pequeno" id="anterior">Anterior</button>
+          <button type="button" class="sec pequeno" id="seguinte">Seguinte</button>
+        </span>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Criar conta | Djuzzy Barber</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=UnifrakturCook:wght@700&display=swap">
+  <link rel="stylesheet" href="../css/estilo.css?v=7">
+  <script src="../js/api.js?v=7" defer></script>
+  <script src="../js/interface.js?v=7" defer></script>
+  <script src="../js/registar.js?v=7" defer></script>
+</head>
+<body>
+<header class="topo" id="topo"></header>
+<main class="miolo">
+  <div id="aviso"></div>
+  <div class="estreito" id="conteudo">
+    <h1>Criar conta</h1>
+    <form id="form-registar" class="caixa">
+      <label for="nome">Nome completo</label>
+      <input id="nome" name="nome" maxlength="120" autocomplete="name" required>
+      <label for="contacto">Contacto (telefone)</label>
+      <input id="contacto" name="contacto" type="tel" maxlength="20" autocomplete="tel" required>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" maxlength="120" autocomplete="email" required>
+      <label for="senha">Senha (mínimo 8 caracteres)</label>
+      <input id="senha" name="senha" type="password" minlength="8" autocomplete="new-password" required>
+      <label for="senha2">Repetir a senha</label>
+      <input id="senha2" name="senha2" type="password" minlength="8" autocomplete="new-password" required>
+      <div class="acoes"><button type="submit">Criar conta</button></div>
+    </form>
+    <p class="cinza">Já tem conta? <a href="entrar.html">Entrar</a></p>
+  </div>
+</main>
+</body>
+</html>

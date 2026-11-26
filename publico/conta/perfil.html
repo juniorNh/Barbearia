@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Meu Perfil | Djuzzy Barber</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=UnifrakturCook:wght@700&display=swap">
+
+  <link rel="stylesheet" href="../css/estilo.css?v=7">
+  <link rel="stylesheet" href="../css/perfil.css?v=7">
+
+  <script src="../js/api.js?v=7" defer></script>
+  <script src="../js/interface.js?v=7" defer></script>
+  <script src="../js/perfil.js?v=7" defer></script>
+</head>
+
+<body>
+
+<header class="topo" id="topo"></header>
+
+<main class="miolo perfil-pagina">
+
+  <div id="aviso"></div>
+
+  <div id="conteudo" hidden>
+
+    <div class="perfil-titulo">
+      <div>
+        <span class="subtitulo">CONTA PESSOAL</span>
+        <h1>Meu Perfil</h1>
+        <p class="cinza">Gira as tuas informações pessoais e a tua conta.</p>
+      </div>
+    </div>
+
+    <!-- CARTÃO PRINCIPAL -->
+
+    <section class="perfil-cartao">
+
+      <div class="perfil-avatar" id="avatar">
+        S
+      </div>
+
+      <div class="perfil-identificacao">
+        <span class="subtitulo">BEM-VINDO AO DJUZZY BARBER</span>
+
+        <h2 id="nome-perfil">Utilizador</h2>
+
+        <p id="email-perfil" class="cinza"></p>
+
+        <span class="perfil-etiqueta" id="tipo-perfil">
+          Cliente
+        </span>
+      </div>
+
+    </section>
+
+    <!-- INFORMAÇÕES PESSOAIS -->
+
+    <section class="perfil-seccao">
+
+      <div class="seccao-cabecalho">
+        <div>
+          <span class="subtitulo">INFORMAÇÕES</span>
+          <h2>Dados pessoais</h2>
+        </div>
+      </div>
+
+      <div class="perfil-grid">
+
+        <div class="campo-perfil">
+          <span>Nome completo</span>
+          <strong id="dado-nome">-</strong>
+        </div>
+
+        <div class="campo-perfil">
+          <span>Email</span>
+          <strong id="dado-email">-</strong>
+        </div>
+
+        <div class="campo-perfil">
+          <span>Tipo de conta</span>
+          <strong id="dado-tipo">-</strong>
+        </div>
+
+        <div class="campo-perfil">
+          <span>Identificação</span>
+          <strong id="dado-id">-</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SEGURANÇA -->
+
+    <section class="perfil-seccao">
+
+      <div class="seccao-cabecalho">
+        <div>
+          <span class="subtitulo">PROTEÇÃO</span>
+          <h2>Segurança da conta</h2>
+        </div>
+      </div>
+
+      <div class="seguranca-cartao">
+
+        <div>
+          <h3>Palavra-passe</h3>
+          <p class="cinza">
+            Mantém a tua conta protegida através de uma palavra-passe segura.
+          </p>
+        </div>
+
+        <span class="seguranca-estado">Protegida</span>
+
+      </div>
+
+      <div class="seguranca-cartao">
+
+        <div>
+          <h3>Dados da conta</h3>
+          <p class="cinza">
+            As tuas informações são utilizadas para identificar a tua conta.
+          </p>
+        </div>
+
+        <span class="seguranca-estado">Ativa</span>
+
+      </div>
+
+    </section>
+          <form id="form-perfil" class="perfil-formulario">
+
+        <h3>Editar informações</h3>
+
+        <label for="campo-nome">Nome completo</label>
+        <input
+          type="text"
+          id="campo-nome"
+          name="nome"
+          minlength="3"
+          maxlength="120"
+          required
+        >
+
+        <label for="campo-email">Email</label>
+        <input
+          type="email"
+          id="campo-email"
+          name="email"
+          maxlength="120"
+          required
+        >
+
+        <div id="grupo-contacto">
+          <label for="campo-contacto">Contacto</label>
+          <input
+            type="tel"
+            id="campo-contacto"
+            name="contacto"
+            maxlength="20"
+          >
+        </div>
+
+        <div class="acoes">
+          <button type="submit">Guardar alterações</button>
+        </div>
+
+      </form>
+
+    <div class="perfil-rodape">
+      <p class="cinza">
+        Djuzzy Barber — O teu estilo, a nossa prioridade.
+      </p>
+    </div>
+
+  </div>
+
+</main>
+
+</body>
+</html>
