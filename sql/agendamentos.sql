@@ -2,10 +2,6 @@
 -- Execute no MySQL Workbench. Corra cada bloco SÓ se o objeto ainda não existir
 -- (veja primeiro com: SHOW TABLES;  e  DESCRIBE servicos;).
 USE barbearia;
-
--- BLOCO 1: duração de cada serviço, em minutos (só se a coluna duracao_minutos NÃO existir em servicos)
-ALTER TABLE servicos ADD COLUMN duracao_minutos SMALLINT UNSIGNED NOT NULL DEFAULT 30;
-
 -- BLOCO 2: tabela das marcações (seguro repetir: só cria se não existir)
 CREATE TABLE IF NOT EXISTS agendamentos (
   id              INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
