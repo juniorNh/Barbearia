@@ -8,7 +8,7 @@ return [
         'utilizador' => getenv('BARBEARIA_BD_USER') ?: 'root',
         'senha'      => getenv('BARBEARIA_BD_SENHA') ?: 'root',
         'porta'      => getenv('BARBEARIA_BD_PORT') ?: '3306',
-        'ssl'        => getenv('BD_SSL') ?: 'false',      
+        'ssl'        => getenv('BD_SSL')==='true',      
 
     ],
 

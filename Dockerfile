@@ -2,4 +2,4 @@ FROM php:8.3-cli
 RUN docker-php-ext-install pdo_mysql mysqli
 WORKDIR /app
 COPY . .
-CMD php -S 0.0.0.0:${PORT:-10000}
+CMD php -S 0.0.0.0:${PORT:-10000} -t publico
