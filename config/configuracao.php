@@ -7,6 +7,9 @@ return [
         'nome'       => getenv('BARBEARIA_BD_NOME') ?: 'barbearia',
         'utilizador' => getenv('BARBEARIA_BD_USER') ?: 'root',
         'senha'      => getenv('BARBEARIA_BD_SENHA') ?: 'root',
+        'porta'      => getenv('BARBEARIA_BD_PORT') ?: '3306',
+        'ssl'        => getenv('BD_SSL') ?: 'false',      
+
     ],
 
     'nome_barbearia' => 'Djuzzy Barber',
