@@ -1,2 +1,4 @@
 .env
-.sql
+/sql/agendamentos.sql
+/sql/esquema.sql
+/sql/financas.sql
